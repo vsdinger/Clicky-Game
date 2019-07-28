@@ -1,0 +1,11 @@
+.card-container {
+    margin-left: 30px;
+  }
+  
+  .card-footer {
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+  }
+  
+  .white {
+    color: white;
+  }

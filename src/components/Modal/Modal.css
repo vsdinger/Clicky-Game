@@ -1,0 +1,12 @@
+.blockIt {
+    display: block;
+    margin: 0 auto;
+}
+
+.noBorder {
+    border: none;
+}
+
+.white {
+    color: white;
+}

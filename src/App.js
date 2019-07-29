@@ -1,119 +1,61 @@
-import React, { Component } from 'react';
-import Footer from "./components/Footer";
+import React, { Component } from "react";
+import Card from "./components/Card";
+import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
-import Jumbotron from "./components/Jumbotron";
-import ImageCard from "./components/ImageCard";
-import Wrapper from "./components/Wrapper"
-import images from "./images.json"
-import BackgroundArea from "./components/BackgroundArea"
-import Modal from "./components/Modal"
-import './App.css';
+import cards from "./cards.json";
+import "./App.css";
 
 class App extends Component {
+  // Setting this.state.cards to the cards json array
   state = {
-    images,
-    chosenImageArray: [],
-    highScore: 0,
-    userScore: 0,
-    message: "Click an Image to Start!",
-    modal: false,
-    gif: "",
-    imgName: ""
+    cards,
+    score: 0,
+    highscore: 0
   };
 
-  selectImage = id => {
-
-    this.setState({ images: this.shuffle(this.state.images) });
-
-    if (this.state.chosenImageArray.indexOf(id) === -1) {
-      
-      this.state.chosenImageArray.push(id)
-
-      this.setState({
-        chosenImageArray: this.state.chosenImageArray,
-        userScore: this.state.userScore + 1,
-        message: "Good choice!"
-      })
-
-      if(this.state.userScore >= this.state.highScore) {
-        this.setState({ highScore: this.state.userScore + 1 })
-      }
-
-      if (this.state.chosenImageArray.length === this.state.images.length ) {
-        this.setState({
-          chosenImageArray: [],
-          modal: true,
-          highScore: 0,
-          userScore: 0,
-          message: "You won! Spiddy's proud of you!",
-          gif: "./images/happySpiddy.gif",
-          imgName: "Happy Spiddy"
-        })
-      }
-
-    } else {
-      this.setState({
-        chosenImageArray: [],
-        userScore: 0,
-        message: "Better luck next time!",
-        modal: true,
-        gif: "./images/sadSpiddy.gif",
-        imgName: "Sad Spiddy"
-      })
-
-      if (this.state.userScore > this.state.highScore) {
-        this.setState({
-          highScore: this.state.userScore
-        })
-      }
+  gameOver = () => {
+    if (this.state.score > this.state.highscore) {
+      this.setState({highscore: this.state.score}, function() {
+        console.log(this.state.highscore);
+      });
     }
-
-  };
-
-  shuffle = a => {
-    var j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
-      j = Math.floor(Math.random() * (i + 1));
-      x = a[i];
-      a[i] = a[j];
-      a[j] = x;
-    }
-    return a;
+    this.state.cards.forEach(card => {
+      card.count = 0;
+    });
+    alert(`Game Over :( \nscore: ${this.state.score}`);
+    this.setState({score: 0});
+    return true;
   }
 
-  closeModal = () => {
-    this.setState({
-      modal: false
-    })
+  clickCount = id => {
+    this.state.cards.find((o, i) => {
+      if (o.id === id) {
+        if(cards[i].count === 0){
+          cards[i].count = cards[i].count + 1;
+          this.setState({score : this.state.score + 1}, function(){
+            console.log(this.state.score);
+          });
+          this.state.cards.sort(() => Math.random() - 0.5)
+          return true; 
+        } else {
+          this.gameOver();
+        }
+      }
+    });
   }
-
+  // Map over this.state.cards and render a cardCard component for each card object
   render() {
     return (
       <Wrapper>
-        <Header 
-        userScore={this.state.userScore}
-        highScore={this.state.highScore}
-        message={this.state.message}
-        />
-        <Jumbotron />
-        <BackgroundArea>
-        {this.state.images.map(image => (
-          <ImageCard
-            selectImage={this.selectImage}
-            id={image.id}
-            key={image.id}
-            name={image.name}
-            image={image.image}
+        <Header score={this.state.score} highscore={this.state.highscore}>Clicky Game</Header>
+        {this.state.cards.map(card => (
+          <Card
+            clickCount={this.clickCount}
+            id={card.id}
+            key={card.id}
+            image={card.image}
           />
         ))}
-        <Modal 
-        modal={this.state.modal}
-        closeModal={this.closeModal}
-        message={this.state.message}
-        gif={this.state.gif}
-        imgName={this.state.imgName} />
-        </BackgroundArea>
-        <Footer />
       </Wrapper>
     );
   }

@@ -1,16 +1,14 @@
 .header {
-    position: fixed;
-    right: 0px;
-    left: 0px;
-  }
-  
-  .navbar .nav-item {
-    display: inline-block;
-    padding: 10px 0;
-    width: 33.3%;
-    text-align: center;
-  }
-  
-  .white {
-    color: white;
-  }
+  width: 100%;
+  font-size: 2rem;
+  color: #2A77AE;
+  margin-bottom: 10px;
+}
+
+.title {
+  float: left;
+}
+
+.scores {
+  float: right;
+}

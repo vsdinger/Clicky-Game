@@ -1,0 +1,74 @@
+[
+{
+"id": 1,
+"name": "bone",
+"image":"C:/Users/golde/Desktop/pain/Clicky-Game/public/images/Bone.png",
+"count": 0
+},
+{
+"id": 2,
+"name": "Chihuahua",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/chihuahua.png",
+"count": 0
+},
+{
+"id": 3,
+"name": "puppyeyes",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/puppyeyes.png",
+"count": 0
+},
+{
+"id": 4,
+"name": "Purple Bone",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/PurpleBone.png",
+"count": 0
+},
+{
+"id": 5,
+"name": "Monkey",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/monkeyToy.png",
+"count": 0
+},
+{
+"id": 6,
+"name": "German Shepherd",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/germanshepherd.png",
+"count": 0
+},
+{
+"id": 7,
+"name": "Bulldog",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/englishbulldog.png",
+"count": 0
+},
+{
+"id": 8,
+"name": "Kong",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/kong.png",
+"count": 0
+},
+{
+"id": 9,
+"name": "Teacup",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/teacup poodle.png",
+"count": 0
+},
+{
+"id": 10,
+"name": "Famous",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/famousdog.png",
+"count": 0
+},
+{
+"id": 11,
+"name": "Ball",
+"image": "C:/Users/golde/Desktop/pain/Clicky-Game/public/images/ball.png",
+"count": 0
+},
+{
+"id": 12,
+"name": "Yourksire",
+"image": "../public/images/yorkshire.png",
+"count": 0
+}
+]
